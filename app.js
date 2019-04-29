@@ -9,14 +9,17 @@ function getYearOfBirth(age) {
 
 
 function createGreeting(name, age) {
+  if (!name || !age) {
+    throw new Error ('Arguments not valid!');
+  }
     try {
         let yearOfBirth = getYearOfBirth(age);
         return `Hi, my name is ${name} and my age is ${age} and I was born in ${yearOfBirth}.`;
     } catch (e) {
-        console.log(e);
+        console.log(e.message);
     }
 }
 
-const aSentence = createGreeting('Mike', 23);
+const aSentence = createGreeting('Mike');
 console.log(aSentence);
 
